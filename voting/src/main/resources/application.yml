@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: voting
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  cloud:
+    aws:
+      sqs:
+        region: ${AWS_SNS_REGION:us-east-1}
+        endpoint: http://localhost:4566
+      sns:
+        region: ${AWS_SNS_REGION:us-east-1}
+        endpoint: http://localhost:4566
+        topic:
+          name: "topico-sessao"
+
+springdoc:
+  swagger-ui:
+    path: /public/swagger
+
+cpf:
+  request:
+    url: https://gateway.apiserpro.serpro.gov.br/consulta-cpf-df-trial/v1
+    token:  Bearer 06aef429-a981-3ec5-a1f8-71d38d86481e

@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: ${APPLICATION_PROFILE:local}
+
+  cloud:
+    aws:
+      sqs:
+        name: "sqs-email-votacao"
+        region: ${AWS_SNS_REGION:us-east-1}
+      sns:
+        region: ${AWS_SQS_REGION:us-east-1}
+      credentials:
+        access-key: ${AWS_ACCESS_KEY}
+        secret-key: ${AWS_SECRET_KEY}
+
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ilucasesds@gmail.com
+    password: vrey yojt nvck kvvi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    mime:
+      decodefilename: true
+server:
+  port: 8081

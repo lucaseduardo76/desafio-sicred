@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    aws:
+      sqs:
+        endpoint: http://192.168.224.1:4566
+      sns:
+        endpoint: http://192.168.224.1:4566
